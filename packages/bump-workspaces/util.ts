@@ -337,7 +337,7 @@ export function calcVersionDiff(
     }
   }
   throw new Error(
-    `Unexpected manual version update: ${oldVersion} -> ${newVersion}`,
+    `Unexpected manual version update: ${JSON.stringify(oldVersion)} -> ${JSON.stringify(newVersion)}`,
   );
 }
 

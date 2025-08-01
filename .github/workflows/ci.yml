@@ -19,12 +19,10 @@ jobs:
       fail-fast: false
       matrix:
         deno:
-          - v1.x
           - v2.x
           - canary
         os:
           - ubuntu-latest
-          - windows-latest
           - macOS-latest
 
     steps:

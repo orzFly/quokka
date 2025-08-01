@@ -1,3 +1,5 @@
+// deno-lint-ignore-file no-explicit-any
+
 export interface BaserowFile {
   url: string;
   thumbnails?: {
@@ -256,11 +258,11 @@ export class BaserowRecord<T extends Record<string, any>> {
     ) as T;
   }
 
-  public async update(patch: Partial<T>): Promise<BaserowRecord<T>> {
+  public update(patch: Partial<T>): Promise<BaserowRecord<T>> {
     return this.table.patch(this.id, patch);
   }
 
-  public async delete(): Promise<void> {
+  public delete(): Promise<void> {
     return this.table.delete(this.id);
   }
 }

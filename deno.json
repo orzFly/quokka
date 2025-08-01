@@ -1,5 +1,7 @@
 {
-  "workspaces": [
+  "name": "quokka",
+  "private": true,
+  "workspace": [
     "packages/*"
   ],
   "imports": {

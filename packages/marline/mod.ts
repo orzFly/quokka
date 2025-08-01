@@ -35,16 +35,25 @@ class MarlineLineArray {
     this.dirty[index] = true;
   }
 
-  public get(index: number) {
-    return this.buffer[index];
+  public get(index: number): string {
+    if (index < 0 || index >= this.length) {
+      throw new Error(`index out of range: ${index}`);
+    }
+    return this.buffer[index]!;
   }
 
-  public isDirty(index: number) {
-    return this.dirty[index];
+  public isDirty(index: number): boolean {
+    if (index < 0 || index >= this.length) {
+      throw new Error(`index out of range: ${index}`);
+    }
+    return this.dirty[index]!;
   }
 
   /** @internal */
-  public cleanDirty(index: number) {
+  public _cleanDirty(index: number): void {
+    if (index < 0 || index >= this.length) {
+      throw new Error(`index out of range: ${index}`);
+    }
     this.dirty[index] = false;
   }
 
@@ -58,7 +67,7 @@ export type MarlineRenderCallback = (
   this: Marline,
   marline: Marline,
   width: number,
-) => any;
+) => unknown;
 
 export class Marline {
   readonly stream: WriteStream;
@@ -105,11 +114,11 @@ export class Marline {
   }
 
   private _termSize?: ITermSize | undefined;
-  get termSize() {
+  get termSize(): ITermSize | undefined {
     return this._termSize;
   }
 
-  get width() {
+  get width(): number {
     return this._termSize ? this._termSize.columns : 0;
   }
 
@@ -125,7 +134,7 @@ export class Marline {
   }
 
   private _started: boolean = false;
-  get started() {
+  get started(): boolean {
     return this._started;
   }
 
@@ -158,7 +167,9 @@ export class Marline {
         try {
           this.stream.removeListener("resize", this.handleStdoutResize$);
           this._resizeListened = false;
-        } catch (e) {}
+        } catch {
+          // ignore
+        }
       }
     }
 
@@ -248,8 +259,8 @@ export class Marline {
     if (topIndexes.length === 0 && bottomIndexes.length === 0) return;
     this.stream.write(seq.join(""));
 
-    for (const i of topIndexes) this.top.cleanDirty(i);
-    for (const i of bottomIndexes) this.bottom.cleanDirty(i);
+    for (const i of topIndexes) this.top._cleanDirty(i);
+    for (const i of bottomIndexes) this.bottom._cleanDirty(i);
   }
 
   private redrawTopLineSeq(index: number) {

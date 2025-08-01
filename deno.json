@@ -10,7 +10,8 @@
   ],
   "private": true,
   "workspace": [
-    "packages/baserow"
+    "packages/baserow",
+    "packages/bump-workspaces"
   ],
   "imports": {
     "std/assert": "jsr:@std/assert@1"

@@ -23,3 +23,5 @@ jobs:
           deno run -A jsr:@deno/bump-workspaces@^0.1/cli
         env:
           GITHUB_TOKEN: ${{ secrets.ORZBOT_PAT }}
+          GIT_USER_NAME: "orzBot"
+          GIT_USER_EMAIL: "orzbot@users.noreply.github.com"

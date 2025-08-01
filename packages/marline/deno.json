@@ -1,0 +1,12 @@
+{
+  "name": "@orz/marline",
+  "version": "0.0.0",
+  "license": "MIT",
+  "exports": "./mod.ts",
+  "tasks": {
+    "dev": "deno run --watch index.ts"
+  },
+  "imports": {
+    "exit-hook": "npm:exit-hook@^4.0.0"
+  }
+}

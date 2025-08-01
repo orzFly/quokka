@@ -11,7 +11,8 @@
   "private": true,
   "workspace": [
     "packages/baserow",
-    "packages/bump-workspaces"
+    "packages/bump-workspaces",
+    "packages/marline"
   ],
   "imports": {
     "@david/dax": "jsr:@david/dax@^0.43.2",

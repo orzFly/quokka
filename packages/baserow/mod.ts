@@ -27,6 +27,8 @@ export type BaserowFilterGroup<F extends number | string> =
 export type BaserowFilter<F extends number | string> =
   | { field: F; type: "equal"; value: any }
   | { field: F; type: "not_equal"; value: any }
+  | { field: F; type: "empty"; value: true }
+  | { field: F; type: "not_empty"; value: true }
   | { field: F; type: "contains"; value: any }
   | { field: F; type: "not_contains"; value: any }
   | { field: F; type: "higher_than"; value: any }

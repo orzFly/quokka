@@ -1,3 +1,9 @@
+### 2025.08.02.21.15
+
+#### @orz/baserow 0.1.2 (patch)
+
+- feat(baserow): Add empty/not_empty filter
+
 ### 2025.08.01.10.52
 
 #### @orz/marline 0.1.0 (minor)

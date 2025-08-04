@@ -1,3 +1,15 @@
+### 2025.08.04.11.51
+
+#### @orz/marline 0.1.2 (patch)
+
+- fix(marline): expose more types
+- docs(marline): add AI-generated docs
+
+#### @orz/singleflight 0.1.1 (patch)
+
+- docs(singleflight): ignore test in examples
+- docs(singleflight): add AI-generated docs
+
 ### 2025.08.04.10.44
 
 #### @orz/marline 0.1.1 (patch)

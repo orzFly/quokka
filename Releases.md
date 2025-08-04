@@ -1,3 +1,14 @@
+### 2025.08.04.10.36
+
+#### @orz/marline 0.1.1 (patch)
+
+- fix(marline): add node types
+- chore(marline): remove useless task
+
+#### @orz/singleflight 0.1.0 (minor)
+
+- feat(singleflight): init package
+
 ### 2025.08.02.21.15
 
 #### @orz/baserow 0.1.2 (patch)

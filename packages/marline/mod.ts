@@ -1,4 +1,4 @@
-/// <reference types="npm:@types/node" />
+/// <reference types="npm:@types/node@22.12.0" />
 
 import exitHook from "exit-hook";
 import process from "node:process";

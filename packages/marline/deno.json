@@ -3,9 +3,6 @@
   "license": "MIT",
   "version": "0.1.0",
   "exports": "./mod.ts",
-  "tasks": {
-    "dev": "deno run --watch index.ts"
-  },
   "imports": {
     "exit-hook": "npm:exit-hook@^4.0.0"
   }

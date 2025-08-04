@@ -4,6 +4,9 @@
   "editor.formatOnType": true,
   "editor.formatOnSaveMode": "file",
   "[typescript]": {
-    "editor.defaultFormatter": "denoland.vscode-deno"
+    "editor.defaultFormatter": "denoland.vscode-deno",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
   }
 }

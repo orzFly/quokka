@@ -1,3 +1,5 @@
+/// <reference types="npm:@types/node" />
+
 import exitHook from "exit-hook";
 import process from "node:process";
 import type { WriteStream } from "node:tty";

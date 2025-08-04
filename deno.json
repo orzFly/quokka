@@ -17,8 +17,10 @@
   "private": true,
   "tasks": {
     "create-release-tag": "deno run --allow-all _tools/create-release-tag.ts",
+    "fmt": "deno fmt && deno task fmt-deno-json",
+    "fmt-deno-json": "deno run --allow-all _tools/fmt-deno-json.ts",
     "lint": "deno lint",
-    "ok": "deno task lint && deno fmt --check",
+    "ok": "deno task lint && deno fmt --check && deno task fmt-deno-json --check",
     "test": "deno test --allow-all --parallel --trace-leaks --coverage --doc --clean"
   },
   "workspace": [

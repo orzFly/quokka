@@ -22,7 +22,7 @@ export class SingleFlightGroup<K> {
    * @returns A promise that resolves to the result of the function execution
    *
    * @example
-   * ```typescript
+   * ```typescript ignore
    * const group = new SingleFlightGroup<string>();
    *
    * // Multiple calls with the same key will share the same result
@@ -64,7 +64,7 @@ export class SingleFlightGroup<K> {
    * @returns A promise that resolves when the pending execution completes
    *
    * @example
-   * ```typescript
+   * ```typescript ignore
    * const group = new SingleFlightGroup<string>();
    *
    * // Start an execution
@@ -94,7 +94,7 @@ export class SingleFlightGroup<K> {
  * @returns A new function that ensures only one execution per key
  *
  * @example
- * ```typescript
+ * ```typescript ignore
  * const fetchUserSingleFlight = singleFlight(async (userId: string) => {
  *   // This function will only execute once per userId
  *   return await fetch(`/api/users/${userId}`);

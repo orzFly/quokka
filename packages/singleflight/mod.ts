@@ -1,7 +1,7 @@
 // deno-lint-ignore-file no-explicit-any
 
 export class SingleFlightGroup<K> {
-  pool = new Map<K, PromiseLike<unknown>>();
+  private readonly pool = new Map<K, PromiseLike<unknown>>();
 
   async run<F extends (...args: any[]) => PromiseLike<any>>(
     key: K,

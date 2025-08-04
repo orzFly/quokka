@@ -1,6 +1,7 @@
 {
   "exports": "./mod.ts",
   "imports": {
+    "@types/node": "npm:@types/node@*",
     "exit-hook": "npm:exit-hook@^4.0.0"
   },
   "license": "MIT",

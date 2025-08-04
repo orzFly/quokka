@@ -1,9 +1,9 @@
 {
-  "name": "@orz/marline",
-  "license": "MIT",
-  "version": "0.1.0",
   "exports": "./mod.ts",
   "imports": {
     "exit-hook": "npm:exit-hook@^4.0.0"
-  }
+  },
+  "license": "MIT",
+  "name": "@orz/marline",
+  "version": "0.1.0"
 }

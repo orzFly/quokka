@@ -1,19 +1,12 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "useUnknownInCatchVariables": true,
     "noImplicitOverride": true,
-    "noUncheckedIndexedAccess": true
+    "noUncheckedIndexedAccess": true,
+    "strict": true,
+    "useUnknownInCatchVariables": true
   },
   "exclude": [
     ".git"
-  ],
-  "private": true,
-  "workspace": [
-    "packages/baserow",
-    "packages/bump-workspaces",
-    "packages/marline",
-    "packages/singleflight"
   ],
   "imports": {
     "@david/dax": "jsr:@david/dax@^0.43.2",
@@ -21,10 +14,17 @@
     "@std/path": "jsr:@std/path@^1.1.1",
     "std/assert": "jsr:@std/assert@1"
   },
+  "private": true,
   "tasks": {
-    "test": "deno test --allow-all --parallel --trace-leaks --coverage --doc --clean",
+    "create-release-tag": "deno run --allow-all _tools/create-release-tag.ts",
     "lint": "deno lint",
     "ok": "deno task lint && deno fmt --check",
-    "create-release-tag": "deno run --allow-all _tools/create-release-tag.ts"
-  }
+    "test": "deno test --allow-all --parallel --trace-leaks --coverage --doc --clean"
+  },
+  "workspace": [
+    "packages/baserow",
+    "packages/bump-workspaces",
+    "packages/marline",
+    "packages/singleflight"
+  ]
 }

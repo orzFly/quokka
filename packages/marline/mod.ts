@@ -14,12 +14,12 @@ const ansiEscapes = {
   cursorRestorePosition: "\x1B8",
 };
 
-interface ITermSize {
+export interface ITermSize {
   rows: number;
   columns: number;
 }
 
-class MarlineLineArray {
+export class MarlineLineArray {
   private readonly buffer: string[];
   private readonly dirty: boolean[];
 

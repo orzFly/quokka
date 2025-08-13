@@ -10,6 +10,11 @@ export interface BaserowFile {
   image_width?: number;
   image_height?: number;
   name: string;
+  visible_name: string;
+  size: number;
+  mime_type: string;
+  is_image: boolean;
+  uploaded_at: string;
 }
 
 export type BaserowFilterGroup<F extends number | string> =

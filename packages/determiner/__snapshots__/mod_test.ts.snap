@@ -1,0 +1,84 @@
+export const snapshot = {};
+
+snapshot[`bytes function 1`] = `
+Uint8Array(10) [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+]
+`;
+
+snapshot[`uint64 function 1`] = `283686952306183n`;
+
+snapshot[`uint32 function 1`] = `66051`;
+
+snapshot[`uint16 function 1`] = `1`;
+
+snapshot[`uint8 function 1`] = `0`;
+
+snapshot[`integer function - default range 1`] = `514`;
+
+snapshot[`integer function - custom range 1`] = `12`;
+
+snapshot[`integer function - invalid range 1`] = `NaN`;
+
+snapshot[`pattern function - string pattern 1`] = `"acbac"`;
+
+snapshot[`pattern function - array pattern 1`] = `"b33"`;
+
+snapshot[`pattern function - default pattern 1`] = `"b4vutsrq"`;
+
+snapshot[`uniquePatterns function 1`] = `
+[
+  "b4kj",
+  "a3ba",
+  "t621",
+]
+`;
+
+snapshot[`uniquePatterns function with existing patterns 1`] = `
+[
+  "a3ba",
+  "o1dc",
+]
+`;
+
+snapshot[`Determiner class - bytes method 1`] = `
+Uint8Array(5) [
+  0,
+  1,
+  2,
+  3,
+  4,
+]
+`;
+
+snapshot[`Determiner class - uint64 method 1`] = `283686952306183n`;
+
+snapshot[`Determiner class - uint32 method 1`] = `66051`;
+
+snapshot[`Determiner class - uint16 method 1`] = `1`;
+
+snapshot[`Determiner class - uint8 method 1`] = `0`;
+
+snapshot[`Determiner class - integerLessThan method 1`] = `51`;
+
+snapshot[`Determiner class - integer method 1`] = `17`;
+
+snapshot[`Determiner class - pattern method 1`] = `"yxzyxz"`;
+
+snapshot[`Determiner class - uniquePatterns method 1`] = `
+[
+  "b4h",
+  "v81",
+  "j2b",
+  "p2v",
+]
+`;

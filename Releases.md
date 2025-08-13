@@ -1,3 +1,13 @@
+### 2025.08.13.10.32
+
+#### @orz/baserow 0.1.3 (patch)
+
+- feat(baserow): Add fields in BaserowFile
+
+#### @orz/determiner 0.1.0 (minor)
+
+- feat(determiner): init package
+
 ### 2025.08.04.11.51
 
 #### @orz/marline 0.1.2 (patch)

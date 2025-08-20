@@ -45,6 +45,16 @@ export type BaserowFilter<F extends number | string> =
   | { field: F; type: "link_row_contains"; value: any }
   | { field: F; type: "link_row_contains_not"; value: any };
 
+export interface BaserowListOptions<T extends Record<string, any>> {
+  page?: number;
+  size?: number;
+  filters?: BaserowFilter<Extract<keyof T, string>>[];
+  filterGroups?: BaserowFilterGroup<Extract<keyof T, string>>[];
+  join?: {
+    field: keyof T;
+    target: ReturnType<typeof joinTarget<any>>;
+  }[];
+}
 export class BaserowInstance {
   public constructor(
     public readonly backend: string,
@@ -90,22 +100,8 @@ export class BaserowTable<T extends Record<string, any>> {
   }
 
   public async list(
-    options: {
-      page?: number;
-      size?: number;
-      filters?: BaserowFilter<Extract<keyof T, string>>[];
-      filterGroups?: BaserowFilterGroup<Extract<keyof T, string>>[];
-      join?: {
-        field: keyof T;
-        target: ReturnType<typeof joinTarget<any>>;
-      }[];
-    } = {},
-  ): Promise<{
-    count: number;
-    next: string | null;
-    previous: string | null;
-    results: BaserowRecord<T>[];
-  }> {
+    options: BaserowListOptions<T> = {},
+  ): Promise<BaserowRecordset<T>> {
     const params = {
       page: (options.page ?? 1).toString(),
       size: (options.size ?? 10).toString(),
@@ -140,19 +136,24 @@ export class BaserowTable<T extends Record<string, any>> {
       },
     );
     if (!response.ok) {
-      console.log(await response.text());
-      throw new Error(`Failed to fetch records: ${response.statusText}`);
+      throw new Error(
+        `Failed to fetch records: ${response.statusText} ${await response
+          .text()}`,
+      );
     }
 
     const data = await response.json();
-    return {
-      count: data.count,
-      next: data.next,
-      previous: data.previous,
-      results: data.results.map((record: any) =>
+    return new BaserowRecordset(
+      this.instance,
+      this,
+      data.count,
+      data.next,
+      data.previous,
+      data.results.map((record: any) =>
         new BaserowRecord(this.instance, this, record)
       ),
-    };
+      options,
+    );
   }
 
   public async get(id: number): Promise<BaserowRecord<T>> {
@@ -271,6 +272,73 @@ export class BaserowRecord<T extends Record<string, any>> {
 
   public delete(): Promise<void> {
     return this.table.delete(this.id);
+  }
+}
+
+export class BaserowRecordset<T extends Record<string, any>> {
+  public constructor(
+    public readonly instance: BaserowInstance,
+    public readonly table: BaserowTable<T>,
+    public readonly count: number,
+    public readonly next: string | null,
+    public readonly previous: string | null,
+    public readonly results: BaserowRecord<T>[],
+    public readonly params: BaserowListOptions<T>,
+  ) {}
+
+  public get page(): number {
+    return this.params.page ?? 1;
+  }
+
+  [Symbol.iterator](): Iterator<BaserowRecord<T>> {
+    return this.results[Symbol.iterator]();
+  }
+
+  async fetchNextPage(): Promise<BaserowRecordset<T> | null> {
+    if (!this.next) {
+      return null;
+    }
+    return await this.table.list({
+      ...this.params,
+      ...this.parsePageParams(this.next),
+    });
+  }
+
+  async fetchPreviousPage(): Promise<BaserowRecordset<T> | null> {
+    if (!this.previous) {
+      return null;
+    }
+    return await this.table.list({
+      ...this.params,
+      ...this.parsePageParams(this.previous),
+    });
+  }
+
+  private parsePageParams(url: string): Partial<BaserowListOptions<T>> {
+    const urlObj = new URL(url);
+    const page = urlObj.searchParams.get("page");
+    if (page != null) {
+      return {
+        page: parseInt(page),
+      };
+    }
+
+    return {};
+  }
+
+  public async *remainingResults({
+    onPageFetched,
+  }: {
+    onPageFetched?: (page: BaserowRecordset<T>) => unknown | Promise<unknown>;
+  } = {}): AsyncIterable<BaserowRecord<T>> {
+    let [page] = [this as BaserowRecordset<T> | null];
+    while (page) {
+      yield* page;
+      page = await page.fetchNextPage();
+      if (page && onPageFetched) {
+        await onPageFetched(page);
+      }
+    }
   }
 }
 

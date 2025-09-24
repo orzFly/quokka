@@ -1,5 +1,5 @@
 {
-  "version": "4",
+  "version": "5",
   "specifiers": {
     "jsr:@david/console-static-text@0.3": "0.3.0",
     "jsr:@david/dax@~0.40.1": "0.40.1",
@@ -45,7 +45,8 @@
     "jsr:@std/testing@^1.0.15": "1.0.15",
     "npm:@types/node@*": "22.12.0",
     "npm:exit-hook@4": "4.0.0",
-    "npm:octokit@^3.1.0": "3.2.2_@octokit+core@5.2.2"
+    "npm:octokit@^3.1.0": "3.2.2_@octokit+core@5.2.2",
+    "npm:octokit@^3.2.2": "3.2.2_@octokit+core@5.2.2"
   },
   "jsr": {
     "@david/console-static-text@0.3.0": {
@@ -592,7 +593,8 @@
       "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ=="
     },
     "semver@7.7.2": {
-      "integrity": "sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA=="
+      "integrity": "sha512-RF0Fw+rO5AMf9MAyaRXI4AV0Ulj5lMHqVxxdSgiVbixSCXoEmmX/jk0CuJw4+3SqroYO9VoUh+HcuJivvtJemA==",
+      "bin": true
     },
     "undici-types@6.20.0": {
       "integrity": "sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg=="
@@ -634,7 +636,8 @@
           "jsr:@std/jsonc@0.224",
           "jsr:@std/path@0.224",
           "jsr:@std/semver@0.224",
-          "jsr:@std/testing@0.224"
+          "jsr:@std/testing@0.224",
+          "npm:octokit@^3.2.2"
         ]
       },
       "packages/determiner": {

@@ -1,15 +1,15 @@
 // Copyright 2024 the Deno authors. All rights reserved. MIT license.
 
-import { parse as parseJsonc } from "jsr:/@std/jsonc@^0.224.0/parse";
-import { join } from "jsr:/@std/path@^0.224.0/join";
-import { resolve } from "jsr:/@std/path@^0.224.0/resolve";
+import { red } from "@std/fmt/colors";
+import { parse as parseJsonc } from "@std/jsonc/parse";
+import { join } from "@std/path/join";
+import { resolve } from "@std/path/resolve";
 import {
   format as formatSemver,
   increment,
   parse as parseSemVer,
   type SemVer,
-} from "jsr:@std/semver@^0.224.0";
-import { red } from "jsr:/@std/fmt@^0.224.0/colors";
+} from "@std/semver";
 
 export type VersionUpdate = "major" | "minor" | "patch" | "prerelease";
 

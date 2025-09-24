@@ -12,7 +12,8 @@
     "@std/jsonc": "jsr:@std/jsonc@^0.224.0",
     "@std/path": "jsr:@std/path@^0.224.0",
     "@std/semver": "jsr:@std/semver@^0.224.0",
-    "@std/testing": "jsr:@std/testing@^0.224.0"
+    "@std/testing": "jsr:@std/testing@^0.224.0",
+    "octokit": "npm:octokit@^3.2.2"
   },
   "license": "MIT",
   "name": "@orz/bump-workspaces",

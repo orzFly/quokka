@@ -1,10 +1,10 @@
 // Copyright 2024 the Deno authors. All rights reserved. MIT license.
 
-import { $ } from "jsr:@david/dax@^0.40.1";
-import { Octokit } from "npm:octokit@^3.1";
-import { cyan, magenta } from "jsr:/@std/fmt@^0.224.0/colors";
-import { ensureFile } from "jsr:/@std/fs@^0.224.0/ensure-file";
-import { join } from "jsr:/@std/path@^0.224.0/join";
+import { $ } from "@david/dax";
+import { cyan, magenta } from "@std/fmt/colors";
+import { ensureFile } from "@std/fs/ensure-file";
+import { join } from "@std/path/join";
+import { Octokit } from "octokit";
 
 /**
  * Upgrade the versions of the packages in the workspace using Conventional Commits rules.

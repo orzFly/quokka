@@ -1,6 +1,6 @@
 // Copyright 2024 the Deno authors. All rights reserved. MIT license.
 
-import { parseArgs } from "jsr:/@std/cli@^0.224.0/parse-args";
+import { parseArgs } from "@std/cli/parse-args";
 import { bumpWorkspaces } from "./mod.ts";
 
 /**

@@ -1,4 +1,6 @@
 {
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nixd",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,

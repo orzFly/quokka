@@ -1,3 +1,9 @@
+### 2025.09.24.04.41
+
+#### @orz/baserow 0.1.4 (patch)
+
+- feat(baserow): Add recordset and remainingResults helper
+
 ### 2025.08.13.10.32
 
 #### @orz/baserow 0.1.3 (patch)

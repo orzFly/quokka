@@ -8,5 +8,5 @@
   "tasks": {
     "dev": "deno run --watch mod.ts"
   },
-  "version": "0.1.3"
+  "version": "0.1.4"
 }
